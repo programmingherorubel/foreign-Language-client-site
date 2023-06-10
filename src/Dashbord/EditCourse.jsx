@@ -36,9 +36,9 @@ const EditCourse = () => {
           })
           .then(res => res.json())
           .then(info => {
-            const photo = info.data.display_url
+            const photo = info.data.display_url 
             const information = {
-                Img:photo || initialData.Img,
+                Img:photo ,
                 courseName:data.courseName,
                 coursePrice:data.coursePrice,
                 teachersName:data.teachersName,
@@ -49,10 +49,17 @@ const EditCourse = () => {
                 status:'pending'
 
             }
-            addCourse(information)
-            .then(result => {
-                if(result.insertedId){
-                    toast.success('data inserted successfully')
+            fetch(`http://localhost:9000/newcourseupdate/${id}`,{
+                method:'PUT',
+                headers:{
+                    'content-type': 'application/json'
+                },
+                body:JSON.stringify(information)
+            })
+            .then(res => res.json())
+            .then(updateData => {
+                if(updateData.modifiedCount){
+                    toast.success('data update successfully')
                 }
             })
           })
