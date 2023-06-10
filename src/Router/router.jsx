@@ -12,6 +12,7 @@ import NewCourse from "../Dashbord/NewCourse";
 import Users from "../Dashbord/Users";
 import Login from "../Pages/Login";
 import Reg from "../Pages/Reg";
+import SelectCourse from "../Dashbord/SelectCourse";
 
 const router = createBrowserRouter(
     [
@@ -69,6 +70,10 @@ const router = createBrowserRouter(
                 {
                     path:'/dashbord/edit/:id',
                     element:<EditCourse/>
+                },
+                {
+                    path:'/dashbord/selectcourse',
+                    element:<SelectCourse/>
                 },
                 
             ]

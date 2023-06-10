@@ -43,6 +43,10 @@ const Dashbord = () => {
                             <Link to='/dashbord' style={{textDecoration:'none',color:'gray',fontWeight: '700'}}>
                             <i style={{color:'gray',fontSize:'22px'}}  class="mx-2 mt-4 fa-sharp fa-solid fa-house"></i>Dashbord</Link>
                         </li>
+                        <li className='m-1 p-1' style={{ listStyle: "none" }}>
+                            <Link to='/dashbord/selectcourse' style={{textDecoration:'none',color:'gray',fontWeight: '700'}}>
+                            <i style={{color:'gray',fontSize:'22px'}} class="mx-2 mt-4 fa-solid fa-check"></i>Select Course</Link>
+                        </li>
 
                         <li className='m-1 p-1' style={{ listStyle: "none" }}>
                             <Link to='/dashbord/myclass' style={{textDecoration:'none',color:'gray',fontWeight: '700'}}>
@@ -77,6 +81,11 @@ const Dashbord = () => {
                         <li className='m-1 p-1' style={{ listStyle: "none" }}>
                             <Link to='/dashbord' style={{textDecoration:'none',color:'gray',fontWeight: '700'}}>
                             <i style={{color:'gray',fontSize:'22px'}}  class="mx-2 mt-4 fa-sharp fa-solid fa-house"></i>Dashbord</Link>
+                        </li>
+
+                        <li className='m-1 p-1' style={{ listStyle: "none" }}>
+                            <Link to='/dashbord/selectcourse' style={{textDecoration:'none',color:'gray',fontWeight: '700'}}>
+                            <i style={{color:'gray',fontSize:'22px'}} class="mx-2 mt-4 fa-solid fa-check"></i>Select Course</Link>
                         </li>
                         
                         <li className='m-1 p-1' style={{ listStyle: "none" }}>

@@ -41,7 +41,7 @@ const DeniedModal = ({handleClose,show,courseId,refetch}) => {
         aria-labelledby="contained-modal-title-vcenter"
         centered show={show} onHide={handleClose}> 
         <Modal.Header closeButton>
-          <Modal.Title className='text-danger'>{courseId} Are you sure you want to Denied This Course ? </Modal.Title>
+          <Modal.Title className='text-danger'>Are you sure you want to Denied This Course ? </Modal.Title>
         </Modal.Header>
         <Modal.Body>
             <form className='p-2'>

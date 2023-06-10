@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { toast } from 'react-hot-toast';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../Provider/AuthProvider';
 
 const CourseCard = ({course}) => {
     const {Img,courseName,availableSeat,_id,teachersName,departmentEmail,coursePrice} = course || {}
-
+    const {user} = useContext(AuthContext)
     const handelSelect = (course)=>{
         const readyToSend = confirm('are you sure you want to join this course ?')
-        
+        const userEmail =  user?.email
         if(readyToSend){
             const informatino = {
                 Id:course._id,
@@ -16,7 +17,8 @@ const CourseCard = ({course}) => {
                 cousrseSeat:course.availableSeat,
                 teachersName:course.teachersName,
                 eamil: course.departmentEmail,
-                price: course.coursePrice
+                price: course.coursePrice,
+                userEmail
             }
             fetch(`http://localhost:9000/addtocart`,{
                 method:'POST',
