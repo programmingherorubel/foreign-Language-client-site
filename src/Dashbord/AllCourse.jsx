@@ -5,6 +5,7 @@ import Loading from '../Components/Loading';
 import Button from 'react-bootstrap/Button';
 import DeniedModal from '../Components/DeniedModal';
 import { useQuery } from 'react-query';
+import axios from 'axios';
 
 
 
@@ -17,14 +18,21 @@ const AllCourse = () => {
     
 
 
-    const {refetch, data=[],isLoading } = useQuery({
-        queryKey: ['updatecourse'],
-        queryFn: async()=>{
-            const res =await fetch(`http://localhost:9000/newcourse`)     
-            const result = await res.json()
-            return result
-        },
-    })
+    // const {refetch, data=[],isLoading } = useQuery({
+    //     queryKey: ['updatecourse'],
+    //     queryFn: async()=>{
+    //         const res = axios(`http://localhost:9000/newcourse`)   
+    //         return res.data;
+    //     },
+    // })
+
+    const { data=[], refetch,isLoading } = useQuery(
+        ["classes"],
+        async () => {
+          const res = await axios.get(`http://localhost:9000/newcourse`);
+          return res.data;
+        }
+      );
 
 if(isLoading){
     return <Loading/>
@@ -62,6 +70,7 @@ if(isLoading){
                                 <th className='text-center w-full'>Course Name</th>
                                 <th className='text-center w-full'>coursePrice</th>
                                 <th className='text-center w-full'>teachersName</th>
+                                <th className='text-center w-full'>Status</th>
                                 <th className='text-center w-full'>Action</th>
                                 <th className='text-center w-full'>Denied</th>
                             </tr>
@@ -75,6 +84,7 @@ if(isLoading){
                                     <td className='text-center'>{course.courseName}</td>
                                     <td className='text-center'>{course.coursePrice}</td>
                                     <td className='text-center'>{course.teachersName}</td>
+                                    <td className='text-center'>{course.status}</td>
                                     <td className='text-center' style={{ fontWeight: '700' }}
                                      onClick={() => handelApproved(course._id)}>
                                         <button className={course.status === "approved" ? 'bg-success btn text-white' : 'bg-warning btn text-white'}>

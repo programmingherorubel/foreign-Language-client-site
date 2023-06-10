@@ -19,6 +19,8 @@ const CustomNavbar = () => {
 
         <li className='mt-2' style={{ listStyle: 'none' }}><Link style={{ textDecoration: 'none', color: 'white', fontWeight: '600' }} to='/course'>Classes</Link></li>
 
+        <li className='mt-2' style={{ listStyle: 'none' }}><Link style={{ textDecoration: 'none', color: 'white', fontWeight: '600' }} to='/instructor'>Instructor</Link></li>
+
 
         <li className='mt-2' style={{ listStyle: 'none' }}><Link style={{ textDecoration: 'none', color: 'white', fontWeight: '600' }} to='/dashbord'>Dashbord</Link></li>
 
@@ -36,6 +38,8 @@ const CustomNavbar = () => {
 
 
         <li className='mt-2' style={{ listStyle: 'none' }}><Link style={{ textDecoration: 'none', color: 'white', fontWeight: '600' }} to='/course'>Classes</Link></li>
+
+        <li className='mt-2' style={{ listStyle: 'none' }}><Link style={{ textDecoration: 'none', color: 'white', fontWeight: '600' }} to='/instructor'>Instructor</Link></li>
 
 
         <li className='mt-2' style={{ listStyle: 'none' }}><Link style={{ textDecoration: 'none', color: 'white', fontWeight: '600' }} to='/dashbord'>Dashbord</Link></li>

@@ -1,18 +1,49 @@
 import React from 'react';
 import { useInstrator } from '../Hook/useInstractor';
 import Loading from './Loading';
+import { useState } from 'react';
+import { Col, Container, Row } from 'react-bootstrap';
+import CommonInsTractorTitle from '../Common/CommonInsTractorTitle';
+import { useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope, faVoicemail } from '@fortawesome/free-solid-svg-icons';
 
 const Instractor = () => {
-    const [ourInstractor,instractorLoading] = useInstrator()
+    const [loadingPage,setloadingPage]= useState(true)
+    const [instractor,setInstractor] = useState([])
 
-    if(instractorLoading){
+    useEffect(()=>{
+        fetch('http://localhost:9000/users')
+        .then(res => res.json())
+        .then(data => {
+            setInstractor(data.filter((ourinstractor) => ourinstractor.role === 'instractor' ) )
+            setloadingPage(false)
+        })
+    },[])
+
+    console.log(instractor)
+    if(loadingPage){
         return <Loading/>
     }
 
+
     return (
-        <div>
-            
-        </div>
+        <Container>
+            <CommonInsTractorTitle title='OUR INSTRUCTOR'></CommonInsTractorTitle>
+            <Row>
+                {
+                    instractor.map((teacher,index)=>{
+                        return <Col md={4} sm={6} className='col-12 mb-5 ' style={{borderRadius:"50%"}}>
+                            <div className=' text-center p-2 m-5'>
+                                <img src={teacher.photo} className='img-fluid' style={{width:'120px',height:'120px',borderRadius:'50%'}} alt="" />
+                                <h5>{teacher.name}</h5>
+                                <h6><FontAwesomeIcon className='mx-2 'style={{color:'gray'}} icon={faEnvelope}/>{teacher.email}</h6>
+                            </div>
+                        </Col>
+                    })
+                }
+            </Row>
+        </Container>
     );
 };
 

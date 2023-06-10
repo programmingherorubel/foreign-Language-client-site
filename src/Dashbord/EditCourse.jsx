@@ -1,15 +1,11 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
-import Button from '../Common/button';
-import CommonInsTractorTitle from '../Common/CommonInsTractorTitle';
 import { toast } from 'react-hot-toast';
-import { addCourse } from '../Api/addCourse';
-import { useContext } from 'react';
-import { AuthContext } from '../Provider/AuthProvider';
 import { useParams } from 'react-router-dom';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import CommonInsTractorTitle from '../Common/CommonInsTractorTitle';
+import Button from '../Common/button';
+import { AuthContext } from '../Provider/AuthProvider';
 
 
 const EditCourse = () => {

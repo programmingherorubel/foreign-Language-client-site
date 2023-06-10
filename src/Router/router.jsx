@@ -1,17 +1,17 @@
 import { createBrowserRouter } from "react-router-dom";
 import Course from "../Components/Course";
 import Home from "../Components/Home";
+import Instractor from "../Components/Instractor";
 import Main from "../Components/Main";
 import SingleCourse from "../Components/SingleCourse";
 import AllCourse from "../Dashbord/AllCourse";
 import Dashbord from "../Dashbord/Dashbord";
+import EditCourse from "../Dashbord/EditCourse";
+import MyClass from "../Dashbord/MyClass";
 import NewCourse from "../Dashbord/NewCourse";
 import Users from "../Dashbord/Users";
 import Login from "../Pages/Login";
 import Reg from "../Pages/Reg";
-import MyClass from "../Dashbord/MyClass";
-import SelectCourse from "../Dashbord/SelectCourse";
-import EditCourse from "../Dashbord/EditCourse";
 
 const router = createBrowserRouter(
     [
@@ -41,8 +41,8 @@ const router = createBrowserRouter(
                     element:<Reg/>
                 },
                 {
-                    path:'/s',
-                    element:<SelectCourse/>
+                    path:'/instructor',
+                    element:<Instractor/>
                 },
             ]
         },
