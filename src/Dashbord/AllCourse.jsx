@@ -110,7 +110,3 @@ export default AllCourse;
 
 
 
-
-// <button className={course.status === "approved" ? 'bg-success btn text-white' : 'bg-warning btn text-white'}>
-//                                         approved
-//                                         </button>

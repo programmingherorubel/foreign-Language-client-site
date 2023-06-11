@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 import CommonInsTractorTitle from '../Common/CommonInsTractorTitle';
 import { AuthContext } from '../Provider/AuthProvider';
+import Loading from '../Components/Loading';
 
 const MyClass = () => {
     const [loading,setLoading]= useState(true)
@@ -51,7 +52,9 @@ const MyClass = () => {
       </Modal>
    </>
 
-
+if(loading){
+    return <Loading/>
+}
 
     return (
         <Container>

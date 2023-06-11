@@ -10,13 +10,6 @@ const Users = () => {
     const [users,setUsers]=useState([])
 
    
-   
-    // allUsrs 
-    // useEffect(()=>{
-    //     fetch('http://localhost:9000/users')
-    //     .then(res => res.json())
-    //     .then(data => setUsers(data))
-    // },[])
     const {refetch, data=[],isLoading } = useQuery({
         queryKey: ['users'],
         queryFn: async()=>{
@@ -52,7 +45,9 @@ const Users = () => {
     }
     
    
-    
+    if(isLoading){
+        return <Loading/>
+    }
 
     return (
         <Container fluid>
