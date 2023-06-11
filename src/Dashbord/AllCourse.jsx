@@ -15,16 +15,7 @@ const AllCourse = () => {
     const handleClose = () => setShow('');
     const handleShow = () => setShow(true);
     
-    
 
-
-    // const {refetch, data=[],isLoading } = useQuery({
-    //     queryKey: ['updatecourse'],
-    //     queryFn: async()=>{
-    //         const res = axios(`http://localhost:9000/newcourse`)   
-    //         return res.data;
-    //     },
-    // })
 
     const { data=[], refetch,isLoading } = useQuery(
         ["classes"],
@@ -85,14 +76,22 @@ if(isLoading){
                                     <td className='text-center'>{course.coursePrice}</td>
                                     <td className='text-center'>{course.teachersName}</td>
                                     <td className='text-center'>{course.status}</td>
-                                    <td className='text-center' style={{ fontWeight: '700' }}
-                                     onClick={() => handelApproved(course._id)}>
-                                        <button className={course.status === "approved" ? 'bg-success btn text-white' : 'bg-warning btn text-white'}>
-                                            {course.status}
+                                    <td className='text-center' style={{ fontWeight: '700' }}>
+                                        <button 
+                                        className={'bg-success btn text-white'}
+                                        disabled={course.status === "approved"}
+                                        onClick={() => handelApproved(course._id)}
+                                        >
+                                        approved
                                         </button>
                                     </td>
                                     
-                                    <td className='text-center' style={{ fontWeight: '700' }}><Button variant="danger" onClick={()=>setShow(course._id)}>
+                                    <td className='text-center' style={{ fontWeight: '700' }}>
+                                        <Button 
+                                        disabled={course.status === "denied"}
+                                        variant="danger" 
+                                        onClick={()=>setShow(course._id)}
+                                        >
                                     Denied 
                                     </Button></td>
                                 </tr>
@@ -108,3 +107,10 @@ if(isLoading){
 };
 
 export default AllCourse;
+
+
+
+
+// <button className={course.status === "approved" ? 'bg-success btn text-white' : 'bg-warning btn text-white'}>
+//                                         approved
+//                                         </button>
