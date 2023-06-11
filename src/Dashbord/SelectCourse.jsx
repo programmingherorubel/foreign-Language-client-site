@@ -7,6 +7,7 @@ import { Col, Container, Row, Table } from 'react-bootstrap';
 import CommonInsTractorTitle from '../Common/CommonInsTractorTitle';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDollar, faEnvelope, faStairs, faSuitcase, faUser } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 const SelectCourse = () => {
 	const { user } = useContext(AuthContext)
@@ -45,7 +46,10 @@ const SelectCourse = () => {
 									<td><FontAwesomeIcon style={{color:'gray'}} className='mx-1' icon={faUser}/>{tableData.teachersName}</td>
 									<td><FontAwesomeIcon style={{color:'gray'}} className='mx-1' icon={faEnvelope}/>{tableData.eamil}</td>
 									<td><FontAwesomeIcon style={{color:'gray'}} className='mx-1' icon={faDollar}/>{tableData.price}</td>
-									<td><i style={{fontSize:'30px',color:'gray'}} class="mx-1 fa-brands fa-stripe"></i></td>
+									<td>
+										<Link to={`/dashbord/pyment/${tableData._id}`}><i style={{fontSize:'30px',color:'gray'}} class="mx-1 fa-brands fa-stripe"></i>
+										</Link>
+									</td>
 								</tr>
 							</tbody>)
 						}

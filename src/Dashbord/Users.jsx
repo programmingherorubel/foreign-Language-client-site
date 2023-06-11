@@ -71,9 +71,18 @@ const Users = () => {
                                     <td className='text-center w-full'>{index + 1}</td>
                                     <td className='text-center w-full'>{usrsData.email}</td>
                                     <td className='text-center w-full'><b>{usrsData.role ? usrsData.role : 'User' }</b></td>
-                                    <td onClick={()=>emailIstractor(usrsData.email)}  className='text-center w-full'><FontAwesomeIcon icon={faPersonChalkboard} className='text-primary ' style={{fontSize:'22px'}} /></td>
+
+                                    <td className='text-center w-full'> 
+                                    <button onClick={()=>emailIstractor(usrsData.email)} disabled={usrsData.role === 'instractor'} className='btn bg-primary text-white' style={{fontWeight:'700'}}>
+                                        <FontAwesomeIcon className='text-white mx-1 mt-1' icon={faPersonChalkboard} style={{fontSize:'22px'}} />
+                                        </button> 
+                                    </td>
     
-                                    <td onClick={()=>emailAdmin(usrsData.email)} className=' text-center w-full'><FontAwesomeIcon icon={faUserTie}  className='text-success' style={{fontSize:'22px'}}/></td>
+                                    <td className=' text-center w-full'>
+                                        <button onClick={()=>emailAdmin(usrsData.email)} disabled={usrsData.role === 'admin'} className='btn bg-success'>
+                                            <FontAwesomeIcon icon={faUserTie}  className='text-white' style={{fontSize:'22px'}}/>
+                                        </button>
+                                    </td>
     
                                    
                                 </tr>

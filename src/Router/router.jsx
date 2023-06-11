@@ -13,6 +13,10 @@ import Users from "../Dashbord/Users";
 import Login from "../Pages/Login";
 import Reg from "../Pages/Reg";
 import SelectCourse from "../Dashbord/SelectCourse";
+import Payment from "../Dashbord/Payment";
+import PaymentSuccess from "../Dashbord/PaymentSuccess";
+
+
 
 const router = createBrowserRouter(
     [
@@ -74,6 +78,15 @@ const router = createBrowserRouter(
                 {
                     path:'/dashbord/selectcourse',
                     element:<SelectCourse/>
+                },
+                {
+                    path:'/dashbord/pyment/:id',
+                    element:<Payment/>,
+                    loader:({params})=>fetch(`http://localhost:9000/addtocart/payment/${params.id}`)
+                },
+                {
+                    path:'/dashbord/success',
+                    element:<PaymentSuccess/>,
                 },
                 
             ]
