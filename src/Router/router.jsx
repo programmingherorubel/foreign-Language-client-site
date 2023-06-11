@@ -15,6 +15,7 @@ import Reg from "../Pages/Reg";
 import SelectCourse from "../Dashbord/SelectCourse";
 import Payment from "../Dashbord/Payment";
 import PaymentSuccess from "../Dashbord/PaymentSuccess";
+import NotFound from "../Components/NotFound";
 
 
 
@@ -90,7 +91,11 @@ const router = createBrowserRouter(
                 },
                 
             ]
-        }
+        },
+       {
+        path:'*',
+        element:<NotFound></NotFound>
+       }
         
         
     ]

@@ -68,6 +68,7 @@ if(loading){
                                 <th className='border border-1 text-center'>Class Name</th>
                                 <th className='border border-1 text-center'>Seat</th>
                                 <th className='border border-1 text-center'>Feedback</th>
+                                <th className='border border-1 text-center'>Status</th>
                                 <th className='border border-1 text-center'>Edit Class</th>
                             </tr>
                         </thead>
@@ -79,6 +80,10 @@ if(loading){
                                     <td className='border border-1 text-center'>{tableData.availableSeat}</td>
                                     <td onClick={()=>setInfo(tableData)} className='border border-1 text-center'>
                                         <FontAwesomeIcon  onClick={handleShow} style={{width:'25px'}} icon={faMessage} />
+                                       
+                                      </td>
+                                    <td onClick={()=>setInfo(tableData)} className='border border-1 text-center'>
+                                        {tableData.status}
                                        
                                       </td>
                                     <td className='border border-1 text-center'>
