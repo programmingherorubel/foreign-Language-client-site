@@ -3,14 +3,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useContext, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import '../Style/customNavbar.css';
 import { AuthContext } from '../Provider/AuthProvider';
+import '../Style/customNavbar.css';
 
 
 
 const CustomNavbar = () => {
     const { user, logout } = useContext(AuthContext)
     const [activeHeader, setActiveHeader] = useState(false)
+ 
+    
 
 
     const DeskotpNav = <>

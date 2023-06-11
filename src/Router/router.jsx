@@ -3,19 +3,20 @@ import Course from "../Components/Course";
 import Home from "../Components/Home";
 import Instractor from "../Components/Instractor";
 import Main from "../Components/Main";
+import NotFound from "../Components/NotFound";
 import SingleCourse from "../Components/SingleCourse";
 import AllCourse from "../Dashbord/AllCourse";
 import Dashbord from "../Dashbord/Dashbord";
 import EditCourse from "../Dashbord/EditCourse";
 import MyClass from "../Dashbord/MyClass";
 import NewCourse from "../Dashbord/NewCourse";
+import Payment from "../Dashbord/Payment";
+import PaymentSuccess from "../Dashbord/PaymentSuccess";
+import SelectCourse from "../Dashbord/SelectCourse";
 import Users from "../Dashbord/Users";
 import Login from "../Pages/Login";
 import Reg from "../Pages/Reg";
-import SelectCourse from "../Dashbord/SelectCourse";
-import Payment from "../Dashbord/Payment";
-import PaymentSuccess from "../Dashbord/PaymentSuccess";
-import NotFound from "../Components/NotFound";
+
 
 
 
@@ -92,6 +93,7 @@ const router = createBrowserRouter(
                 
             ]
         },
+
        {
         path:'*',
         element:<NotFound></NotFound>

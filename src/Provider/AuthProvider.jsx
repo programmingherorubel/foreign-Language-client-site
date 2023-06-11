@@ -2,6 +2,7 @@ import React, { createContext, useEffect, useState } from 'react';
 import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { toast } from 'react-hot-toast';
 import app from '../Firebase/firebaseConfig'
+import axios from 'axios';
 
 
 
@@ -106,17 +107,40 @@ const AuthProvider = ({children}) => {
         });
     }
 
-      useEffect(()=>{
-        setLoading(true)
-        const unSubscribe = onAuthStateChanged(auth,(user)=>{
-            setUser(user)
-            setLoading(false)
-        })
-        return ()=>{
-           return unSubscribe()
-        }
+    //   useEffect(()=>{
+    //     setLoading(true)
+    //     const unSubscribe = onAuthStateChanged(auth,(user)=>{
+    //         setUser(user)
+
+    //         setLoading(false)
+    //     })
+    //     return ()=>{
+    //        return unSubscribe()
+    //     }
            
-    },[])
+    // },[])
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+          setUser(user);
+          console.log("current user", user);
+          //  get and set token
+    
+          if (user) {
+            axios
+              .post("http://localhost:9000/jwt", { email: user.email })
+              .then((data) => {
+                console.log(data);
+                localStorage.setItem("access-token", data.data.token);
+                setLoading(false);
+              });
+          } else {
+            localStorage.removeItem("access-token");
+          }
+        });
+        return () => {
+          return unsubscribe();
+        };
+      }, []);
 
     // Logout 
     const logout = () =>{
