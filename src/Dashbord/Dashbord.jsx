@@ -60,7 +60,7 @@ const Dashbord = () => {
                         </li>
                         </div>}
 
-                       {user?.email  && teachers && !admin && <div>
+                       {user?.email  && teachers  && <div>
                         <li className='m-1 p-1' style={{ listStyle: "none" }}>
                             <Link to='/' style={{textDecoration:'none',color:'gray',fontWeight: '700'}}><i style={{color:'gray',fontSize:'22px'}}  class="mt-4 mx-2 fa-solid fa-house"></i> Users Home</Link>
                         </li>
@@ -81,7 +81,7 @@ const Dashbord = () => {
                         </li>
                         </div>
                     }
-                      {user?.email  && admin && !teachers &&
+                      {user?.email  && admin  &&
                       <div>
                         <li className='m-1 p-1' style={{ listStyle: "none" }}>
                             <Link to='/' style={{textDecoration:'none',color:'gray',fontWeight: '700'}}><i style={{color:'gray',fontSize:'22px'}}  class="mt-4 mx-2 fa-solid fa-house"></i> Users Home</Link>
@@ -109,15 +109,14 @@ const Dashbord = () => {
                 <div style={{height:'100vh'}} className={activemobile ? 'moibileMenu activemobile':'moibileMenu'}>
                     {/* link  */}
                     <ul>
-                        
-                    <li className='m-1 p-1' style={{ listStyle: "none" }}>
+                        {user?.email && !teachers && !admin && <div>
+                        <li className='m-1 p-1' style={{ listStyle: "none" }}>
                             <Link to='/' style={{textDecoration:'none',color:'gray',fontWeight: '700'}}><i style={{color:'gray',fontSize:'22px'}}  class="mt-4 mx-2 fa-solid fa-house"></i> Users Home</Link>
                         </li>
                         <li className='m-1 p-1' style={{ listStyle: "none" }}>
                             <Link to='/dashbord' style={{textDecoration:'none',color:'gray',fontWeight: '700'}}>
                             <i style={{color:'gray',fontSize:'22px'}}  class="mx-2 mt-4 fa-sharp fa-solid fa-house"></i>Dashbord</Link>
                         </li>
-
                         <li className='m-1 p-1' style={{ listStyle: "none" }}>
                             <Link to='/dashbord/selectcourse' style={{textDecoration:'none',color:'gray',fontWeight: '700'}}>
                             <i style={{color:'gray',fontSize:'22px'}} class="mx-2 mt-4 fa-solid fa-check"></i>Select Course</Link>
@@ -127,18 +126,41 @@ const Dashbord = () => {
                             <Link to='/dashbord/success' style={{textDecoration:'none',color:'gray',fontWeight: '700'}}>
                             <i style={{color:'gray',fontSize:'22px'}} class="mx-2 mt-4 fa-solid fa-thumbs-up"></i>Order Success</Link>
                         </li>
-                        
+                        </div>}
+
+                       {user?.email  && teachers  && <div>
                         <li className='m-1 p-1' style={{ listStyle: "none" }}>
+                            <Link to='/' style={{textDecoration:'none',color:'gray',fontWeight: '700'}}><i style={{color:'gray',fontSize:'22px'}}  class="mt-4 mx-2 fa-solid fa-house"></i> Users Home</Link>
+                        </li>
+
+                        <li className='m-1 p-1' style={{ listStyle: "none" }}>
+                            <Link to='/dashbord' style={{textDecoration:'none',color:'gray',fontWeight: '700'}}>
+                            <i style={{color:'gray',fontSize:'22px'}}  class="mx-2 mt-4 fa-sharp fa-solid fa-house"></i>Dashbord</Link>
+                        </li>
+
+                         <li className='m-1 p-1' style={{ listStyle: "none" }}>
                             <Link to='/dashbord/myclass' style={{textDecoration:'none',color:'gray',fontWeight: '700'}}>
                             <i class="mx-2 mt-4 fa-solid fa-list"></i>MyClass</Link>
                         </li>
-
+                       
                         <li className='m-1 p-1' style={{ listStyle: "none"}}>
                             <Link style={{ textDecoration: 'none',color:'gray', fontWeight: '700' }} to='/dashbord/course'>
-                            <FontAwesomeIcon icon={faCirclePlus} className='mx-2 mt-4' style={{color:'gray',fontSize:'22px'}} /> Add Course</Link>
+                            <FontAwesomeIcon icon={faKey} className='mx-2 mt-4' style={{color:'gray',fontSize:'22px'}} /> Add Course</Link>
+                        </li>
+                        </div>
+                    }
+                      {user?.email  && admin  &&
+                      <div>
+                        <li className='m-1 p-1' style={{ listStyle: "none" }}>
+                            <Link to='/' style={{textDecoration:'none',color:'gray',fontWeight: '700'}}><i style={{color:'gray',fontSize:'22px'}}  class="mt-4 mx-2 fa-solid fa-house"></i> Users Home</Link>
                         </li>
 
-                        <li className='m-1 p-1' style={{ listStyle: "none"}}>
+                        <li className='m-1 p-1' style={{ listStyle: "none" }}>
+                            <Link to='/dashbord' style={{textDecoration:'none',color:'gray',fontWeight: '700'}}>
+                            <i style={{color:'gray',fontSize:'22px'}}  class="mx-2 mt-4 fa-sharp fa-solid fa-house"></i>Dashbord</Link>
+                        </li>
+
+                          <li className='m-1 p-1' style={{ listStyle: "none"}}>
                             <Link style={{ textDecoration: 'none',color:'gray', fontWeight: '700' }} to='/dashbord/users'>
                             <FontAwesomeIcon icon={faUsers} className='mx-2 mt-4' style={{color:'gray',fontSize:'22px'}} /> Users Actions</Link>
                         </li>
@@ -146,8 +168,8 @@ const Dashbord = () => {
                         <li className='m-1 p-1' style={{ listStyle: "none"}}>
                             <Link style={{ textDecoration: 'none',color:'gray', fontWeight: '700' }} to='/dashbord/allcours'>
                             <FontAwesomeIcon icon={faLock} className='mx-2 mt-4' style={{color:'gray',fontSize:'22px'}} /> All Course </Link>
-                        </li>
-                       
+                        </li> </div>}
+                        
                     </ul>
 
                     {/* link  */}
