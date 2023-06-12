@@ -33,7 +33,7 @@ const AuthProvider = ({children}) => {
                     name:user?.displayName,
                     photo:user?.photoURL
                 }
-                fetch(`http://localhost:9000/users/${user?.email}`,{
+                fetch(`https://project12server-programmingherorubel.vercel.app/users/${user?.email}`,{
                     method:'PUT',
                     headers:{
                         'content-type':'application/json'
@@ -90,7 +90,7 @@ const AuthProvider = ({children}) => {
                 name:user?.displayName,
                 photo:user?.photoURL
             }
-            fetch(`http://localhost:9000/users/${user?.email}`,{
+            fetch(`https://project12server-programmingherorubel.vercel.app/users/${user?.email}`,{
                 method:'PUT',
                 headers:{
                     'content-type':'application/json'
@@ -127,7 +127,7 @@ const AuthProvider = ({children}) => {
     
           if (user) {
             axios
-              .post("http://localhost:9000/jwt", { email: user.email })
+              .post("https://project12server-programmingherorubel.vercel.app/jwt", { email: user.email })
               .then((data) => {
                 console.log(data);
                 localStorage.setItem("access-token", data.data.token);

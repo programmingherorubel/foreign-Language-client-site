@@ -14,7 +14,7 @@ const SelectCourse = () => {
 	const { data = [], refetch, isLoading } = useQuery(
 		["classes"],
 		async () => {
-			const res = await axios.get(`http://localhost:9000/addtocart/${user?.email}`);
+			const res = await axios.get(`https://project12server-programmingherorubel.vercel.app/addtocart/${user?.email}`);
 			return res.data;
 		}
 	);

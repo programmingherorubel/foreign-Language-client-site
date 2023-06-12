@@ -9,7 +9,7 @@ const PaymentSuccess = () => {
     const {user} = useContext(AuthContext)
     
     useEffect(()=>{
-        fetch(`http://localhost:9000/payments/${user?.email}`)
+        fetch(`https://project12server-programmingherorubel.vercel.app/payments/${user?.email}`)
         .then(res => res.json())
         .then(data => {
             setTabaleData(data)

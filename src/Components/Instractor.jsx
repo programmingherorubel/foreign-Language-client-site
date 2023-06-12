@@ -10,7 +10,7 @@ const Instractor = () => {
     const [instractor,setInstractor] = useState([])
 
     useEffect(()=>{
-        fetch('http://localhost:9000/users')
+        fetch('https://project12server-programmingherorubel.vercel.app/users')
         .then(res => res.json())
         .then(data => {
             setInstractor(data.filter((ourinstractor) => ourinstractor.role === 'instractor' ) )
