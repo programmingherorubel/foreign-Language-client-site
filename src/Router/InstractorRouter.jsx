@@ -5,7 +5,7 @@ import useTeachers from '../Hook/useTeachers';
 import { Navigate, useLocation } from 'react-router-dom';
 import Loading from '../Components/Loading';
 
-const InstractorRouter = () => {
+const InstractorRouter = ({children}) => {
     const {user,loading} = useContext(AuthContext)
     const [teachers] = useTeachers()
     const location = useLocation()
@@ -18,7 +18,7 @@ const InstractorRouter = () => {
         return children
     }
 
-    return <Navigate to='/' state={{from:location}}></Navigate>
+    return <Navigate to='/' ></Navigate>
 };
 
 export default InstractorRouter;

@@ -18,7 +18,7 @@ const AdminRouter = ({children}) => {
         return children
     }
 
-    return <Navigate to='/' state={{from:location}}></Navigate>
+    return <Navigate to='/' ></Navigate>
 };
 
 export default AdminRouter;
