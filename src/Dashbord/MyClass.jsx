@@ -1,4 +1,4 @@
-import { faEdit, faMessage } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faMessage, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useContext, useEffect, useState } from 'react';
 import { Col, Container, Modal, Row, Table } from 'react-bootstrap';
@@ -52,6 +52,20 @@ const MyClass = () => {
       </Modal>
    </>
 
+
+const deleteClass  = (id)=>{
+    const ready = confirm('Are you sure you want to delete this class')
+    if(confirm){
+        fetch(`http://localhost:9000/deleteclass/${id}`,{
+            method: 'DELETE',
+        })
+        .then(res => res.json())
+        .then(data => {
+            alert('delete successfull')
+        })
+    }
+}
+
 if(loading){
     return <Loading/>
 }
@@ -70,6 +84,7 @@ if(loading){
                                 <th className='border border-1 text-center'>Feedback</th>
                                 <th className='border border-1 text-center'>Status</th>
                                 <th className='border border-1 text-center'>Edit Class</th>
+                                <th className='border border-1 text-center'>Delete Class</th>
                             </tr>
                         </thead>
                         {
@@ -90,6 +105,10 @@ if(loading){
                                         <Link to={`/dashbord/edit/${tableData._id}`}>
                                             <FontAwesomeIcon style={{width:'25px'}} icon={faEdit} />
                                         </Link>
+                                    </td>
+
+                                    <td className='border border-1 text-center'>
+                                            <FontAwesomeIcon onClick={()=>deleteClass(tableData._id)} style={{width:'25px'}} icon={faTrash} />
                                     </td>
                                 </tr>
                             </tbody>)

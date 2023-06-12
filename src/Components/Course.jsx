@@ -14,14 +14,14 @@ const Course = () => {
         
     }
 
-    // const totalCourseData =  mycourse.filter(course => course.status === 'approved')
+    const totalCourseData =  mycourse.filter(course => course.status === 'approved')
 
     return (
         <Container fluid>
             <CommonInsTractorTitle title='Our Course'></CommonInsTractorTitle>
             <Row className='mt-5 mb-5'>
                     {
-                        mycourse.map(course => <Col lg={3} md={4} sm={6} className='mt-5' key={course._id}>
+                        totalCourseData.map(course => <Col lg={3} md={4} sm={6} className='mt-5' key={course._id}>
                             <CourseCard course={course}></CourseCard>
                         </Col>)
                     }

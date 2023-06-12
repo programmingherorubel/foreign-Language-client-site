@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
-import Button from '../Common/button';
-import CommonInsTractorTitle from '../Common/CommonInsTractorTitle';
 import { toast } from 'react-hot-toast';
-import { addCourse } from '../Api/addCourse';
-import { useContext } from 'react';
+import CommonInsTractorTitle from '../Common/CommonInsTractorTitle';
+import Button from '../Common/button';
 import { AuthContext } from '../Provider/AuthProvider';
+import axios from 'axios';
 
 const NewCourse = () => {
     const { register, handleSubmit } = useForm();
     const {user}= useContext(AuthContext)
+    
     const onSubmit = data => {
         const api_Key = `5528744d6a1a320dde7b1fb03bf1f442`
         const image = data.img[0]
@@ -28,20 +28,16 @@ const NewCourse = () => {
                 Img:photo,
                 courseName:data.courseName,
                 coursePrice:data.coursePrice,
-                teachersName:data.teachersName,
+                teachersName:user?.displayName,
                 phone:data.phone,
-                departmentEmail:data.departmentEmail,
+                departmentEmail:user?.email,
                 description:data.description,
                 availableSeat:data.availableSeat,
                 status:'pending'
 
             }
-            addCourse(information)
-            .then(result => {
-                if(result.insertedId){
-                    toast.success('data inserted successfully')
-                }
-            })
+           axios.post(`http://localhost:9000/newcourse`,information)
+           .then (res => console.log(res.data))
             
           })
 
