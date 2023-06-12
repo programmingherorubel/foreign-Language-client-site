@@ -1,14 +1,13 @@
-import React from 'react';
-import { useContext } from 'react';
-import { AuthContext } from '../Provider/AuthProvider';
-import useTeachers from '../Hook/useTeachers';
-import { Navigate, useLocation } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Navigate } from 'react-router-dom';
 import Loading from '../Components/Loading';
+import useTeachers from '../Hook/useTeachers';
+import { AuthContext } from '../Provider/AuthProvider';
 
 const InstractorRouter = ({children}) => {
     const {user,loading} = useContext(AuthContext)
     const [teachers] = useTeachers()
-    const location = useLocation()
+    
 
     if(loading){
         return <Loading/>
