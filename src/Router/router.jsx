@@ -16,6 +16,8 @@ import SelectCourse from "../Dashbord/SelectCourse";
 import Users from "../Dashbord/Users";
 import Login from "../Pages/Login";
 import Reg from "../Pages/Reg";
+import AdminRouter from "./AdminRouter";
+import InstractorRouter from "./InstractorRouter";
 
 
 
@@ -37,7 +39,7 @@ const router = createBrowserRouter(
                 {
                     path:'/course/:id',
                     element:<SingleCourse/>,
-                    loader:({params})=> fetch(`http://localhost:9000/newcourse/${params.id}`)
+                    loader:({params})=> fetch(`https://project12server-programmingherorubel.vercel.app/newcourse/${params.id}`)
                 },
                 {
                     path:'/login',
@@ -59,23 +61,23 @@ const router = createBrowserRouter(
             children:[
                 {
                     path:'/dashbord/myclass',
-                    element:<MyClass/>
+                    element:<InstractorRouter> <MyClass/></InstractorRouter>
                 },
                 {
                     path:'/dashbord/course',
-                    element:<NewCourse/>
+                    element:<InstractorRouter> <NewCourse/></InstractorRouter>
                 },
                 {
                     path:'/dashbord/users',
-                    element:<Users/>
+                    element: <AdminRouter> <Users/></AdminRouter>
                 },
                 {
                     path:'/dashbord/allcours',
-                    element:<AllCourse/>
+                    element:<AdminRouter><AllCourse/></AdminRouter> 
                 },
                 {
                     path:'/dashbord/edit/:id',
-                    element:<EditCourse/>
+                    element:<InstractorRouter><EditCourse/></InstractorRouter> 
                 },
                 {
                     path:'/dashbord/selectcourse',
@@ -84,7 +86,7 @@ const router = createBrowserRouter(
                 {
                     path:'/dashbord/pyment/:id',
                     element:<Payment/>,
-                    loader:({params})=>fetch(`http://localhost:9000/addtocart/payment/${params.id}`)
+                    loader:({params})=>fetch(`https://project12server-programmingherorubel.vercel.app/addtocart/payment/${params.id}`)
                 },
                 {
                     path:'/dashbord/success',
@@ -103,3 +105,6 @@ const router = createBrowserRouter(
     ]
 )
 export default router
+
+
+

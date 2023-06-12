@@ -1,20 +1,20 @@
+import { faDollar, faEnvelope, faSuitcase, faUser } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import React, { useContext } from 'react';
+import { Col, Container, Row, Table } from 'react-bootstrap';
 import { useQuery } from 'react-query';
+import { Link } from 'react-router-dom';
+import CommonInsTractorTitle from '../Common/CommonInsTractorTitle';
 import Loading from '../Components/Loading';
 import { AuthContext } from '../Provider/AuthProvider';
-import { Col, Container, Row, Table } from 'react-bootstrap';
-import CommonInsTractorTitle from '../Common/CommonInsTractorTitle';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDollar, faEnvelope, faStairs, faSuitcase, faUser } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
 
 const SelectCourse = () => {
 	const { user } = useContext(AuthContext)
 	const { data = [], refetch, isLoading } = useQuery(
 		["classes"],
 		async () => {
-			const res = await axios.get(`http://localhost:9000/addtocart/${user?.email}`);
+			const res = await axios.get(`https://project12server-programmingherorubel.vercel.app/addtocart/${user?.email}`);
 			return res.data;
 		}
 	);

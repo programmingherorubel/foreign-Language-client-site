@@ -1,7 +1,7 @@
-import React, { useContext, useState, useEffect } from "react";
-import { AuthContext } from "../Provider/AuthProvider";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import axios from "axios";
+import React, { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
 
 import "../Style/CheckoutForm.css";
 
@@ -16,7 +16,7 @@ const CheckoutForm = ({ price, data }) => {
 
   useEffect(() => {
     axios
-      .post("http://localhost:9000/create-payment-intent", {
+      .post("https://project12server-programmingherorubel.vercel.app/create-payment-intent", {
         price,
       })
       .then((res) => setPaymentData(res.data.clientSecret));
@@ -81,7 +81,7 @@ const CheckoutForm = ({ price, data }) => {
         instructorEmail: data.instructorEmail,
       };
 
-      axios.post("http://localhost:9000/payments", payment).then((res) => {
+      axios.post("https://project12server-programmingherorubel.vercel.app/payments", payment).then((res) => {
         if (res.data.insertedId) {
           alert("added successfully");
         }

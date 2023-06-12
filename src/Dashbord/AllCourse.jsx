@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { Col, Container, Row, Table } from 'react-bootstrap';
-import CommonInsTractorTitle from '../Common/CommonInsTractorTitle';
-import Loading from '../Components/Loading';
-import Button from 'react-bootstrap/Button';
-import DeniedModal from '../Components/DeniedModal';
-import { useQuery } from 'react-query';
 import axios from 'axios';
+import React, { useState } from 'react';
+import { Col, Container, Row, Table } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
+import { useQuery } from 'react-query';
+import CommonInsTractorTitle from '../Common/CommonInsTractorTitle';
+import DeniedModal from '../Components/DeniedModal';
+import Loading from '../Components/Loading';
 
 
 
@@ -20,7 +20,7 @@ const AllCourse = () => {
     const { data=[], refetch,isLoading } = useQuery(
         ["classes"],
         async () => {
-          const res = await axios.get(`http://localhost:9000/newcourse`);
+          const res = await axios.get(`https://project12server-programmingherorubel.vercel.app/newcourse`);
           return res.data;
         }
       );
@@ -33,7 +33,7 @@ if(isLoading){
     const handelApproved = (id) => {
         const ready = confirm('are you sure yout approve this course')
         if (ready) {
-            const url = `http://localhost:9000/newcourse/approved/${id}`;
+            const url = `https://project12server-programmingherorubel.vercel.app/newcourse/approved/${id}`;
             fetch(url, {
                 method: 'PUT'
             })

@@ -1,10 +1,10 @@
-import { faPersonChalkboard, faTrash, faUserTie } from '@fortawesome/free-solid-svg-icons';
+import { faPersonChalkboard, faUserTie } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Col, Container, Row, Table } from 'react-bootstrap';
+import { useQuery } from 'react-query';
 import CommonInsTractorTitle from '../Common/CommonInsTractorTitle';
 import Loading from '../Components/Loading';
-import { useQuery } from 'react-query';
 
 const Users = () => {
     const [users,setUsers]=useState([])
@@ -13,7 +13,7 @@ const Users = () => {
     const {refetch, data=[],isLoading } = useQuery({
         queryKey: ['users'],
         queryFn: async()=>{
-            const res =await fetch(`http://localhost:9000/users`)     
+            const res =await fetch(`https://project12server-programmingherorubel.vercel.app/users`)     
             const ata = await res.json()
             setUsers(ata)
         },
@@ -23,7 +23,7 @@ const Users = () => {
     // email Admin 
 
         const  emailAdmin = email =>{
-            fetch(`http://localhost:9000/admin/${email}`,{
+            fetch(`https://project12server-programmingherorubel.vercel.app/admin/${email}`,{
                 method:'PUT'
             })
             .then(res => res.json())
@@ -35,7 +35,7 @@ const Users = () => {
     // Email INstraction 
 
         const  emailIstractor = email =>{
-            fetch(`http://localhost:9000/instractor/${email}`,{
+            fetch(`https://project12server-programmingherorubel.vercel.app/instractor/${email}`,{
             method:'PUT'
         })
         .then(res => res.json())

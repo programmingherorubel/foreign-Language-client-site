@@ -60,7 +60,7 @@ const Dashbord = () => {
                         </li>
                         </div>}
 
-                       {user?.email && teachers && <div>
+                       {user?.email  && teachers && !admin && <div>
                         <li className='m-1 p-1' style={{ listStyle: "none" }}>
                             <Link to='/' style={{textDecoration:'none',color:'gray',fontWeight: '700'}}><i style={{color:'gray',fontSize:'22px'}}  class="mt-4 mx-2 fa-solid fa-house"></i> Users Home</Link>
                         </li>
@@ -81,7 +81,7 @@ const Dashbord = () => {
                         </li>
                         </div>
                     }
-                      {user?.email  && admin && 
+                      {user?.email  && admin && !teachers &&
                       <div>
                         <li className='m-1 p-1' style={{ listStyle: "none" }}>
                             <Link to='/' style={{textDecoration:'none',color:'gray',fontWeight: '700'}}><i style={{color:'gray',fontSize:'22px'}}  class="mt-4 mx-2 fa-solid fa-house"></i> Users Home</Link>

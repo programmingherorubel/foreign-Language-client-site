@@ -20,7 +20,7 @@ const CourseCard = ({course}) => {
                 price: course.coursePrice,
                 userEmail
             }
-            fetch(`http://localhost:9000/addtocart`,{
+            fetch(`https://project12server-programmingherorubel.vercel.app/addtocart`,{
                 method:'POST',
                 headers:{
                     'content-type': 'application/json'
@@ -48,7 +48,7 @@ const CourseCard = ({course}) => {
             {
             user?.email  ? <button  onClick={()=>handelSelect(course)} className='button'>Select Class</button>
             :
-            <button   className='button'>Select Class</button>    
+            <button className='button'>Select Class</button>    
             }
         </div>
     );

@@ -5,8 +5,8 @@ import { Col, Container, Modal, Row, Table } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 import CommonInsTractorTitle from '../Common/CommonInsTractorTitle';
-import { AuthContext } from '../Provider/AuthProvider';
 import Loading from '../Components/Loading';
+import { AuthContext } from '../Provider/AuthProvider';
 
 const MyClass = () => {
     const [loading,setLoading]= useState(true)
@@ -21,7 +21,7 @@ const MyClass = () => {
     const nodatafound =  <div style={{width:"100%",height:"10vh",display:"flex",justifyContent:"center",alignItems:"center"}}><b>No Data Found</b></div>
 
     useEffect(()=>{
-        fetch(`http://localhost:9000/myclass/${user?.email}`)
+        fetch(`https://project12server-programmingherorubel.vercel.app/myclass/${user?.email}`)
         .then(res => res.json())
         .then(data => {
             setMyClass(data)

@@ -4,7 +4,7 @@ const useCurse = ()=>{
     const [mycourse,setMyCourse] = useState([])
     const [transTacLoading,setTransTacLoading] = useState(true)
     useEffect(()=>{
-        fetch('http://localhost:9000/newcourse')
+        fetch('https://project12server-programmingherorubel.vercel.app/newcourse')
         .then(res => res.json())
         .then(data => {
             setMyCourse(data)

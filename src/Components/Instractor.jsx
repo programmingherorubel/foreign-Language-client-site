@@ -1,19 +1,16 @@
-import React from 'react';
-import { useInstrator } from '../Hook/useInstractor';
-import Loading from './Loading';
-import { useState } from 'react';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import CommonInsTractorTitle from '../Common/CommonInsTractorTitle';
-import { useEffect } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faVoicemail } from '@fortawesome/free-solid-svg-icons';
+import Loading from './Loading';
 
 const Instractor = () => {
     const [loadingPage,setloadingPage]= useState(true)
     const [instractor,setInstractor] = useState([])
 
     useEffect(()=>{
-        fetch('http://localhost:9000/users')
+        fetch('https://project12server-programmingherorubel.vercel.app/users')
         .then(res => res.json())
         .then(data => {
             setInstractor(data.filter((ourinstractor) => ourinstractor.role === 'instractor' ) )

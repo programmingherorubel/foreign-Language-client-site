@@ -7,7 +7,7 @@ const useTeachers = () => {
     
     
     useEffect(()=>{
-        fetch(`http://localhost:9000/instractor/${user?.email}`)
+        fetch(`https://project12server-programmingherorubel.vercel.app/instractor/${user?.email}`)
         .then(res => res.json())
         .then(data => {
             setTeachers(data.instractor)

@@ -7,7 +7,7 @@ const useAdmin = () => {
     
     
     useEffect(()=>{
-        fetch(`http://localhost:9000/admin/${user?.email}`)
+        fetch(`https://project12server-programmingherorubel.vercel.app/admin/${user?.email}`)
         .then(res => res.json())
         .then(data => {
             setAdmin(data.admin)
