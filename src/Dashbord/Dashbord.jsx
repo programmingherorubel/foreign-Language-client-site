@@ -34,7 +34,6 @@ const Dashbord = () => {
                 </div>}
                         <b onClick={()=>setActivmobileMenu(!activemobile)}><i class="text-white hamburger mx-4 fa-solid fa-bars"></i></b>
                     </div>
-                
                 </header>
                 <div style={{display:'flex'}} className='mt-2'>
                     
