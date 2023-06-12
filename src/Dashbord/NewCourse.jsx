@@ -1,11 +1,10 @@
+import axios from 'axios';
 import React, { useContext } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
-import { toast } from 'react-hot-toast';
 import CommonInsTractorTitle from '../Common/CommonInsTractorTitle';
 import Button from '../Common/button';
 import { AuthContext } from '../Provider/AuthProvider';
-import axios from 'axios';
 
 const NewCourse = () => {
     const { register, handleSubmit } = useForm();
@@ -36,7 +35,7 @@ const NewCourse = () => {
                 status:'pending'
 
             }
-           axios.post(`http://localhost:9000/newcourse`,information)
+           axios.post(`https://project12server-programmingherorubel.vercel.app/newcourse`,information)
            .then (res => console.log(res.data))
             
           })

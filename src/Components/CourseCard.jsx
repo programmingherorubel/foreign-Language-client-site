@@ -22,7 +22,7 @@ const CourseCard = ({course}) => {
                 price: course.coursePrice,
                 userEmail
             }
-            fetch(`http://localhost:9000/addtocart`,{
+            fetch(`https://project12server-programmingherorubel.vercel.app/addtocart`,{
                 method:'POST',
                 headers:{
                     'content-type': 'application/json'

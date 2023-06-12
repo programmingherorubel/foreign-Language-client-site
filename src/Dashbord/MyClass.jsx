@@ -21,7 +21,7 @@ const MyClass = () => {
     const nodatafound =  <div style={{width:"100%",height:"10vh",display:"flex",justifyContent:"center",alignItems:"center"}}><b>No Data Found</b></div>
 
     useEffect(()=>{
-        fetch(`http://localhost:9000/myclass/${user?.email}`)
+        fetch(`https://project12server-programmingherorubel.vercel.app/myclass/${user?.email}`)
         .then(res => res.json())
         .then(data => {
             setMyClass(data)
@@ -56,7 +56,7 @@ const MyClass = () => {
 const deleteClass  = (id)=>{
     const ready = confirm('Are you sure you want to delete this class')
     if(confirm){
-        fetch(`http://localhost:9000/deleteclass/${id}`,{
+        fetch(`https://project12server-programmingherorubel.vercel.app/deleteclass/${id}`,{
             method: 'DELETE',
         })
         .then(res => res.json())

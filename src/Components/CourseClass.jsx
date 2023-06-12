@@ -1,6 +1,4 @@
-import React from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import CommonInsTractorTitle from '../Common/CommonInsTractorTitle';
 
@@ -8,7 +6,7 @@ const CourseClass = () => {
     const [populer,setPopuler]= useState([])
 
     useEffect(()=>{
-        fetch(`http://localhost:9000/newcourse`)
+        fetch(`https://project12server-programmingherorubel.vercel.app/newcourse`)
         .then(res => res.json())
         .then(data => setPopuler(data.slice(0,6)))
     },[])

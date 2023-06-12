@@ -13,7 +13,7 @@ const Users = () => {
     const {refetch, data=[],isLoading } = useQuery({
         queryKey: ['users'],
         queryFn: async()=>{
-            const res =await fetch(`http://localhost:9000/users`)     
+            const res =await fetch(`https://project12server-programmingherorubel.vercel.app/users`)     
             const ata = await res.json()
             setUsers(ata)
         },
@@ -23,7 +23,7 @@ const Users = () => {
     // email Admin 
 
         const  emailAdmin = email =>{
-            fetch(`http://localhost:9000/admin/${email}`,{
+            fetch(`https://project12server-programmingherorubel.vercel.app/admin/${email}`,{
                 method:'PUT'
             })
             .then(res => res.json())
@@ -35,7 +35,7 @@ const Users = () => {
     // Email INstraction 
 
         const  emailIstractor = email =>{
-            fetch(`http://localhost:9000/instractor/${email}`,{
+            fetch(`https://project12server-programmingherorubel.vercel.app/instractor/${email}`,{
             method:'PUT'
         })
         .then(res => res.json())
