@@ -36,7 +36,9 @@ const NewCourse = () => {
 
             }
            axios.post(`https://project12server-programmingherorubel.vercel.app/newcourse`,information)
-           .then (res => console.log(res.data))
+           .then (res => {
+            alert('success')
+           })
             
           })
 
