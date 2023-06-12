@@ -9,7 +9,7 @@ const DeniedModal = ({handleClose,show,courseId,refetch}) => {
         const information = {
             feedback:deniedValue,
         }
-        fetch(`https://project12server-programmingherorubel.vercel.app/feedback/${courseId}`,{
+        fetch(`http://localhost:9000/feedback/${courseId}`,{
             method:'PUT',
             headers:{
                 'content-type':'application/json'
@@ -25,7 +25,7 @@ const DeniedModal = ({handleClose,show,courseId,refetch}) => {
 
     
     const handelDenied = (id) => {
-        const url = `https://project12server-programmingherorubel.vercel.app/newcourse/denied/${id}`;
+        const url = `http://localhost:9000/newcourse/denied/${id}`;
             fetch(url, {
                 method: 'PUT'
             })

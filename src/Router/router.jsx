@@ -37,7 +37,7 @@ const router = createBrowserRouter(
                 {
                     path:'/course/:id',
                     element:<SingleCourse/>,
-                    loader:({params})=> fetch(`https://project12server-programmingherorubel.vercel.app/newcourse/${params.id}`)
+                    loader:({params})=> fetch(`http://localhost:9000/newcourse/${params.id}`)
                 },
                 {
                     path:'/login',
@@ -84,7 +84,7 @@ const router = createBrowserRouter(
                 {
                     path:'/dashbord/pyment/:id',
                     element:<Payment/>,
-                    loader:({params})=>fetch(`https://project12server-programmingherorubel.vercel.app/addtocart/payment/${params.id}`)
+                    loader:({params})=>fetch(`http://localhost:9000/addtocart/payment/${params.id}`)
                 },
                 {
                     path:'/dashbord/success',

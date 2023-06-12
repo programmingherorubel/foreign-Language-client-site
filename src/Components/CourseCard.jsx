@@ -1,11 +1,13 @@
 import React, { useContext } from 'react';
 import { toast } from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
 
 const CourseCard = ({course}) => {
     const {Img,courseName,availableSeat,_id,teachersName,departmentEmail,coursePrice} = course || {}
     const {user} = useContext(AuthContext)
+    const navigate = useNavigate()
+    const location = useLocation()
     const handelSelect = (course)=>{
         const readyToSend = confirm('are you sure you want to join this course ?')
         const userEmail =  user?.email
@@ -20,7 +22,7 @@ const CourseCard = ({course}) => {
                 price: course.coursePrice,
                 userEmail
             }
-            fetch(`https://project12server-programmingherorubel.vercel.app/addtocart`,{
+            fetch(`http://localhost:9000/addtocart`,{
                 method:'POST',
                 headers:{
                     'content-type': 'application/json'
@@ -36,6 +38,14 @@ const CourseCard = ({course}) => {
             
         }
     }
+
+    const loginHandeler = ()=>{
+        toast.error((t) => (
+            <span>
+              Please  {navigate("/login", { state: { from: location } }) }Login
+            </span>
+          ));
+    }
     return (
         <div className='m-3'>
             <Link style={{textDecoration:'none'}} to={`/course/${_id}`}>
@@ -48,7 +58,7 @@ const CourseCard = ({course}) => {
             {
             user?.email  ? <button  onClick={()=>handelSelect(course)} className='button'>Select Class</button>
             :
-            <button className='button'>Select Class</button>    
+            <button onClick={()=>loginHandeler()} className='button'>Select Class</button>    
             }
         </div>
     );

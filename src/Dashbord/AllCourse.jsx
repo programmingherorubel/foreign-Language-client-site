@@ -20,7 +20,7 @@ const AllCourse = () => {
     const { data=[], refetch,isLoading } = useQuery(
         ["classes"],
         async () => {
-          const res = await axios.get(`https://project12server-programmingherorubel.vercel.app/newcourse`);
+          const res = await axios.get(`http://localhost:9000/newcourse`);
           return res.data;
         }
       );
@@ -33,7 +33,7 @@ if(isLoading){
     const handelApproved = (id) => {
         const ready = confirm('are you sure yout approve this course')
         if (ready) {
-            const url = `https://project12server-programmingherorubel.vercel.app/newcourse/approved/${id}`;
+            const url = `http://localhost:9000/newcourse/approved/${id}`;
             fetch(url, {
                 method: 'PUT'
             })

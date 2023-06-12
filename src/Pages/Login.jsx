@@ -4,13 +4,20 @@ import { useForm } from 'react-hook-form';
 import { Col, Container, Row } from 'react-bootstrap';
 import CommonInsTractorTitle from '../Common/CommonInsTractorTitle';
 import Button from '../Common/button';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+
+
+
 
 const Login = () => {
+    const location = useLocation()
+    const navigate = useNavigate()
+    const from = location.state?.from?.pathname || "/";
     const { login } = useContext(AuthContext)
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
         login(data.email,data.password)
+        navigate(from, { replace: true });
     };
     return (
         <Container>
