@@ -14,7 +14,7 @@ const EditCourse = () => {
     const {id} = useParams()
     const [initialData,setInitialData] = useState({})
     useEffect(()=>{
-        fetch(`https://project12server-programmingherorubel.vercel.app/newcourse/${id}`)
+        fetch(`http://localhost:9000/newcourse/${id}`)
         .then(res => res.json())
         .then(data => setInitialData(data))
     },[id])
@@ -45,7 +45,7 @@ const EditCourse = () => {
                 status:'pending'
 
             }
-            fetch(`https://project12server-programmingherorubel.vercel.app/newcourseupdate/${id}`,{
+            fetch(`http://localhost:9000/newcourseupdate/${id}`,{
                 method:'PUT',
                 headers:{
                     'content-type': 'application/json'

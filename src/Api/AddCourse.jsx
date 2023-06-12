@@ -1,5 +1,5 @@
 export const addCourse = async (information) => {
-    const responce = await fetch(`https://project12server-programmingherorubel.vercel.app/newcourse`, {
+    const responce = await fetch(`http://localhost:9000/newcourse`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
