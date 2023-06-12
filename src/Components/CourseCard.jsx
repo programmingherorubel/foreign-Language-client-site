@@ -45,7 +45,11 @@ const CourseCard = ({course}) => {
                 <h6 className='mx-2' style={{color:'gray'}}>Available<span  style={{color:'#1A1F45'}}>{availableSeat}</span></h6>
             </div>
             </Link>
-            <button  onClick={()=>handelSelect(course)} className='button'>Select Class</button>
+            {
+            user?.email  ? <button  onClick={()=>handelSelect(course)} className='button'>Select Class</button>
+            :
+            <button   className='button'>Select Class</button>    
+            }
         </div>
     );
 };
