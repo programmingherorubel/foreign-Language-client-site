@@ -6,6 +6,8 @@ import { Toaster } from 'react-hot-toast';
 import { Link, Outlet } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
 import '../Style/Dashbord.css';
+import useAdmin from '../Hook/useAdmin';
+import useInstructors from '../Hook/useInstructors';
 
 
 
@@ -13,6 +15,9 @@ import '../Style/Dashbord.css';
 const Dashbord = () => {
     const {user,logout} = useContext(AuthContext)
     const [activemobile,setActivmobileMenu] = useState(false)
+    const [isAdmin] = useAdmin()
+    const [isInstructor] = useInstructors()
+    console.log(isInstructor)
    
 
    
@@ -48,7 +53,7 @@ const Dashbord = () => {
                             <Link to='/dashbord' style={{textDecoration:'none',color:'gray',fontWeight: '700'}}>
                             <i style={{color:'gray',fontSize:'22px'}}  class="mx-2 mt-4 fa-sharp fa-solid fa-house"></i>Dashbord</Link>
                         </li>
-                        <li className='m-1 p-1' style={{ listStyle: "none" }}>
+                       {!isInstructor && !isAdmin && <> <li className='m-1 p-1' style={{ listStyle: "none" }}>
                             <Link to='/dashbord/selectcourse' style={{textDecoration:'none',color:'gray',fontWeight: '700'}}>
                             <i style={{color:'gray',fontSize:'22px'}} class="mx-2 mt-4 fa-solid fa-check"></i>Select Course</Link>
                         </li>
@@ -57,29 +62,31 @@ const Dashbord = () => {
                             <Link to='/dashbord/success' style={{textDecoration:'none',color:'gray',fontWeight: '700'}}>
                             <i style={{color:'gray',fontSize:'22px'}} class="mx-2 mt-4 fa-solid fa-thumbs-up"></i>Order Success</Link>
                         </li>
+                        </>
+                        }
                     
 
-                         <li className='m-1 p-1' style={{ listStyle: "none" }}>
+                        {isInstructor && <li className='m-1 p-1' style={{ listStyle: "none" }}>
                             <Link to='/dashbord/myclass' style={{textDecoration:'none',color:'gray',fontWeight: '700'}}>
                             <i class="mx-2 mt-4 fa-solid fa-list"></i>MyClass</Link>
-                        </li>
+                        </li>}
                        
-                        <li className='m-1 p-1' style={{ listStyle: "none"}}>
+                      {isInstructor &&  <li className='m-1 p-1' style={{ listStyle: "none"}}>
                             <Link style={{ textDecoration: 'none',color:'gray', fontWeight: '700' }} to='/dashbord/course'>
                             <FontAwesomeIcon icon={faKey} className='mx-2 mt-4' style={{color:'gray',fontSize:'22px'}} /> Add Course</Link>
-                        </li>
+                        </li>}
                         
                       
 
-                          <li className='m-1 p-1' style={{ listStyle: "none"}}>
+                          {isAdmin && <li className='m-1 p-1' style={{ listStyle: "none"}}>
                             <Link style={{ textDecoration: 'none',color:'gray', fontWeight: '700' }} to='/dashbord/users'>
                             <FontAwesomeIcon icon={faUsers} className='mx-2 mt-4' style={{color:'gray',fontSize:'22px'}} /> Users Actions</Link>
-                        </li>
+                        </li>}
 
-                        <li className='m-1 p-1' style={{ listStyle: "none"}}>
+                       {isAdmin && <li className='m-1 p-1' style={{ listStyle: "none"}}>
                             <Link style={{ textDecoration: 'none',color:'gray', fontWeight: '700' }} to='/dashbord/allcours'>
                             <FontAwesomeIcon icon={faLock} className='mx-2 mt-4' style={{color:'gray',fontSize:'22px'}} /> All Course </Link>
-                        </li> 
+                        </li> }
                         
                     </ul>
                     
@@ -125,7 +132,7 @@ const Dashbord = () => {
                             <FontAwesomeIcon icon={faUsers} className='mx-2 mt-4' style={{color:'gray',fontSize:'22px'}} /> Users Actions</Link>
                         </li>
 
-                        <li className='m-1 p-1' style={{ listStyle: "none"}}>
+                      <li className='m-1 p-1' style={{ listStyle: "none"}}>
                             <Link style={{ textDecoration: 'none',color:'gray', fontWeight: '700' }} to='/dashbord/allcours'>
                             <FontAwesomeIcon icon={faLock} className='mx-2 mt-4' style={{color:'gray',fontSize:'22px'}} /> All Course </Link>
                         </li> 
